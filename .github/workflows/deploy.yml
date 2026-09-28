@@ -27,4 +27,9 @@ jobs:
         run: |
           docker build -t helsb-rag-chatbot .
 
-        
+      - name: Login to ACR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.ACR_LOGIN_SERVER }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
