@@ -34,7 +34,7 @@ jobs:
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
-    - name: Build and Push Image to ACR
-      run: |
-            docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/helsb-rag-chatbot:${{ github.sha }} .
-            docker push ${{ secrets.ACR_LOGIN_SERVER }}/helsb-rag-chatbot:${{ github.sha }}
+      - name: Build and Push Image to ACR
+        run: |
+          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/helsb-rag-chatbot:${{ github.sha }} .
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/helsb-rag-chatbot:${{ github.sha }}
